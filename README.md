@@ -37,7 +37,8 @@ I want to add Google tasks api to the app to create a to-do list that can work w
 
 # ERD 
 
-<a href = "https://drive.google.com/file/d/1iL-sJYH6doz8VwcIoVEQzVciNbdaJw74/view?usp=sharing"><img src=https://drive.google.com/file/d/1iL-sJYH6doz8VwcIoVEQzVciNbdaJw74/view?usp=sharing.jpg></a>
+
+<iframe src="https://drive.google.com/file/d/1iL-sJYH6doz8VwcIoVEQzVciNbdaJw74/preview" width="640" height="480" allow="autoplay"></iframe>
 
 # Story Frames
 
