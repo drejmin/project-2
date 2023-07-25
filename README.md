@@ -1,21 +1,11 @@
-# Project 2 oAuth Template
+# Overview
+ <h2>This app is one that is focused on students and education. The purpose of it is to create virtual notes sharing sessions that are easily assessible to all students. The notes can be made searchable. </h2>
 
-Use this repo as the base for your project 2.
+# Data Entries
 
-## Getting Started
+## Possible Third Party App
+https://developers.google.com/tasks/quickstart/js 
 
-* clone this repo (no forking needed)
-* run `rm -rf .git` to remove the git history
-* run `git init` to create a new git history
-* create a new repo on github and follow the instructions to push an existing repository from the command line
-* run `npm i` to install the required packages
-* touch a `.env` file and add the following to it:
+I want to add Google tasks api to the app to create a to-do list that can work with the notes
 
-```shell
-DATABASE_URL= < copy mongo uri from atlas / previous project >
-GOOGLE_CLIENT_ID= < copy from google cloud devs / previous project >
-GOOGLE_SECRET=< copy from google cloud devs / previous project >
-GOOGLE_CALLBACK=http://localhost:3000/oauth2callback
-SECRET="can be any string"
-```
-* run `nodemon` to test your app! 
+
