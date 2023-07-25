@@ -7,6 +7,43 @@ https://developers.google.com/tasks/quickstart/js
 
 I want to add Google tasks api to the app to create a to-do list that can work with the notes
 
+# Restful Routing Chart
+
+| VERB   | URL pattern           | Action (CRUD)    | Description |
+| ----   | -----------           | -------------    | ----------- |
+| GET    | /notes                | Index (Read)     | lists all notes |
+| GET    | /notes/new            | New (Read)       | shows a form to make a new note |
+| POST   | /notes                | Create (Create)  | creates a note with the POST payload (form) data |
+| GET    | /notes/:id            | Show (Read)      | shows a specific note |
+| GET    | /notes/edit/:id       | Edit (Read)      | shows a form for editing a selected note|
+| PUT    | /notes/:id            | Update (Update)  | updates the data for selected note |
+| DELETE | /notes/:id            | Destroy (Delete) | deletes the note |
+| | | |
+| GET    | /classes          | Index (Read)     | lists all classes |
+| GET    | /classes/new      | New (Read)       | shows a form to make a new classes |
+| POST   | /classes          | Create (Create)  | creates a class with the POST payload (form) data |
+| GET    | /classes/:id      | Show (Read)      | shows a specific class in the listing |
+| GET    | /classes/edit/:id | Edit (Read)      | shows a form for editing a selected class |
+| PUT    | /classes/:id      | Update (Update)  | updates the data for selected class |
+| DELETE | /classes/:id      | Destroy (Delete) | deletes the class |
+| | | |
+| GET    | /groups          | Index (Read)     | lists all groups |
+| GET    | /groups/new      | New (Read)       | shows a form to make a new groups |
+| POST   | /groups          | Create (Create)  | creates a group with the POST payload (form) data |
+| GET    | /groups/:id      | Show (Read)      | shows a specific group in the listing |
+| GET    | /groups/edit/:id | Edit (Read)      | shows a form for editing a selected group |
+| PUT    | /groups/:id      | Update (Update)  | updates the data for selected group |
+| DELETE | /groups/:id      | Destroy (Delete) | deletes the group |
+
+# ERD 
+
+<a href="https://imgur.com/YwY4Lhe"><img src="https://i.imgur.com/YwY4Lhe.jpg" title="source: imgur.com" /></a>
+
+# Story Frames
+
+
+
+
 
 # MVP
 <ul>
@@ -21,3 +58,4 @@ I want to add Google tasks api to the app to create a to-do list that can work w
 <li>Ability to link notes to different classes</li>
 <li>Ability to add and remove members to groups if user is group/class manager </li>
 </ul>
+
