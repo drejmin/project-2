@@ -1,9 +1,9 @@
-module.exports = {
-  index
-}
+// module.exports = {
+//   index
+// }
 
-function index(req, res) {
-  res.render("index", {
-    title: "Homepage"
-  });
-}
+// function index(req, res) {
+//   res.render("index", {
+//     title: "Homepage"
+//   });
+// }

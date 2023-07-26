@@ -8,10 +8,9 @@ const notesSchema = new Schema({
   groupName: String,
   private: Boolean,
   text: String,
-  picture: Image,
 }, {
   timestamps: true
 });
 
 
-module.exports = mongoose.model('Notes', notesSchema);
+module.exports = mongoose.model('notes', notesSchema);

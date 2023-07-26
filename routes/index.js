@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
-const indexRouter = require("../controllers/index.js")
 
-router.get('/', indexRouter.index);
+router.get('/', function(req,res,next){
+  res.redirect('/notes');
+});
 
 // Google OAuth login route
 router.get('/auth/google', passport.authenticate(
@@ -21,15 +22,15 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect: '/',
-    failureRedirect: '/'
+    successRedirect: '/notes',
+    failureRedirect: '/notes'
   }
 ));
 
 // OAuth logout route
 router.get('/logout', function(req, res){
   req.logout(function() {
-    res.redirect('/');
+    res.redirect('/notes');
   });
 });
 
