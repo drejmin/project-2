@@ -12,6 +12,10 @@ require('./config/database');
 require('./config/passport');
 
 const indexRouter = require('./routes/index');
+const classesRouter = require('./routes/classes');
+const groupsRouter = require('./routes/groups');
+const notesRouter = require('./routes/notes');
+
 
 const app = express();
 
@@ -41,6 +45,9 @@ app.use(function (req, res, next) {
 });
 
 app.use('/', indexRouter);
+app.use('/notes', notesRouter);
+app.use('/', classesRouter);
+app.use('/', groupsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
