@@ -1,6 +1,5 @@
 const Class = require("../models/classes");
-const Group = require("../models/groups");
-const Note = require("../models/notes");
+
 
 module.exports={
     index,

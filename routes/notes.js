@@ -4,14 +4,14 @@ const router = express.Router();
 const notesCtrl = require('../controllers/notes');
 	
 // GET /notes
-router.get('/', notesCtrl.index);
+router.get('/notes', notesCtrl.index);
 // GET /notes/new
-router.get('/new', notesCtrl.new);
+router.get('notes/new', notesCtrl.new);
 // GET /notes/:id (show functionality) MUST be below new route
-router.get('/:id', notesCtrl.show);
+router.get('notes/:id', notesCtrl.show);
 // DELETE /notes/:id
 //router.get('/:id', notesCtrl.delete);
 // POST /notes
-router.post('/', notesCtrl.create);
+router.post('notes/', notesCtrl.create);
 	
 module.exports = router;
