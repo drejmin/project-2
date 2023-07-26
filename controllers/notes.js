@@ -10,8 +10,8 @@ module.exports={
 }
 
 async function index(req,res){
-    const note = await Note.find({});
-    res.render('notes/index', {title: 'All Notes', notes});
+    const notes = await Note.find({});
+    res.render('notes/index.ejs', {title: 'All Notes', notes});
 }
 
 async function show(req,res){
