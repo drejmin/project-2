@@ -1,20 +1,19 @@
 <%- include('../partials/header') %>
 
-<form id="new-form" action="/notes" method="POST">
-  <label>Title:</label>
-  <input type="text" name="title">
-  <label>Release Year:</label>
-  <input type="text" name="releaseYear">
-  <label>MPAA Rating</label>
-  <select name="mpaaRating">
-    <option value="G">G</option>
-    <option value="PG">PG</option>
-    <option value="PG-13">PG-13</option>
-    <option value="R">R</option>
-  </select>
-  <label>Now Showing:</label>
-  <input type="checkbox" name="nowShowing" checked>
-  <input type="submit" value="Add Movie">
+<form id="new-note" action="/notes/new" method="POST">
+  <label>Note name:</label>
+  <input type="text" name="noteName">
+  <label>Course:</label>
+  <input type="text" name="courseName">
+  <label>Group</label>
+  <input type="text" name="groupName">
+  <label>Text</label>
+  <input type="text" name="text">
+  <label>Subject</label>
+  <input type="text" name="subject">
+  <label>Private</label>
+  <input type="checkbox" name="private" checked>
+  <input type="submit" value="Add Note">
 </form>
 
 <%- include('../partials/footer') %>
