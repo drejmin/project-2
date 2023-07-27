@@ -1,4 +1,4 @@
-const Class = require("../models/classes");
+const Class = require("../models/notes");
 
 
 module.exports={
@@ -14,7 +14,7 @@ async function index(req,res){
 }
 
 async function show(req,res){
-    const classes = await Class.findById(req.params.id)
+    const Class = await Class.findById(req.params.id)
 }
 
 function newClass(req,res){

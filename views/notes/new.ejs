@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 
 <div class = "form">
-  <form id="new-form" action="notes/new"  style="width:75;left:0" method="POST">
+  <form id="new-form" action="/notes/index"  style="width:75;left:0" method="POST">
     <label>Note name:</label>
     <input type="text" name="noteName">
     <label>Course:</label>
@@ -14,7 +14,10 @@
     <input type="text" name="subject">
     <label>Private</label>
     <input type="checkbox" name="private" checked>
-    <input type="submit" value="Add Note">
+    <input type="submit">
+  </form>
+  <form action="/notes<%= /:id/ %>" method="DELETE">
+    <button type="submit">Delete Note</button>
   </form>
 </div>
 <%- include('../partials/footer') %>
