@@ -19,7 +19,7 @@ async function show(req,res){
 }
 
 function newNote(req,res){
-    req.render('notes/new.ejs', {title: 'Add Note',errorMsg:''});
+    res.render('notes/new.ejs', {title: 'Add Note',errorMsg:''});
 }
 
 async function create(req, res) {

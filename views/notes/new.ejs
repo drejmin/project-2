@@ -1,19 +1,20 @@
 <%- include('../partials/header') %>
 
-<form id="new-note" action="notes/new" method="POST">
-  <label>Note name:</label>
-  <input type="text" name="noteName">
-  <label>Course:</label>
-  <input type="text" name="courseName">
-  <label>Group</label>
-  <input type="text" name="groupName">
-  <label>Text</label>
-  <input type="text" name="text">
-  <label>Subject</label>
-  <input type="text" name="subject">
-  <label>Private</label>
-  <input type="checkbox" name="private" checked>
-  <input type="submit" value="Add Note">
-</form>
-
+<div class = "form">
+  <form id="new-form" action="notes/new"  style="width:75;left:0" method="POST">
+    <label>Note name:</label>
+    <input type="text" name="noteName">
+    <label>Course:</label>
+    <input type="text" name="courseName">
+    <label>Group</label>
+    <input type="text" name="groupName">
+    <label>Text</label>
+    <input type="text" name="text">
+    <label>Subject</label>
+    <input type="text" name="subject">
+    <label>Private</label>
+    <input type="checkbox" name="private" checked>
+    <input type="submit" value="Add Note">
+  </form>
+</div>
 <%- include('../partials/footer') %>

@@ -6,7 +6,7 @@ const notesCtrl = require('../controllers/notes');
 // GET /notes
 router.get('/', notesCtrl.index);
 // GET /notes/new
-router.get('/new.ejs', notesCtrl.new);
+router.get('/new', notesCtrl.new);
 // GET /notes/:id (show functionality) MUST be below new route
 router.get('/:id', notesCtrl.show);
 // DELETE /notes/:id
