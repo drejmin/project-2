@@ -6,7 +6,9 @@ module.exports={
     index,
     show,
     new: newNote,
-    create
+    create,
+    delete: deleteNote,
+    update,
 }
 
 async function index(req,res){
@@ -15,11 +17,22 @@ async function index(req,res){
 }
 
 async function show(req,res){
-    const note = await Note.findById(req.params.id)
+    const Note = await Note.findById(req.params.id)
 }
 
 function newNote(req,res){
     res.render('notes/new.ejs', {title: 'Add Note',errorMsg:''});
+}
+
+function update(req,res){
+  req.body.done = !!req.body.done;
+  Note.update(req.params.id, req.body);
+  res.redirect(`/notes/${req.params.id})`);
+}
+
+function deleteNote(req,res){
+  Note.deleteOne(req.params.id);
+  res.redirect('/notes');
 }
 
 async function create(req, res) {
@@ -29,7 +42,7 @@ async function create(req, res) {
     }
     try {
       // Update this line because now we need the _id of the new movie
-      const notes = await Note.create(req.body);
+      const Note = await Note.create(req.body);
       // Redirect to the new movie's show functionality 
       res.redirect(`/notes/${note._id}`);
     } catch (err) {
