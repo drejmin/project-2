@@ -67,8 +67,9 @@
   }
   
   #new-form *,
-  #add-review-form *,
-  #add-performer-form * {
+  #add-notes-form *,
+  #add-groups-form *,
+  #add-classes-form * {
     font-size: 20px;
     padding: 5px;
     border-radius: 5px;
@@ -120,16 +121,18 @@
     font-weight: bold;
   }
   
-  #add-review-form,
-  #add-performer-form {
+  #add-classes-form,
+  #add-notes-form,
+  #add-groups-form {
     display: grid;
     grid-template-columns: auto auto;
     grid-gap: 1rem;
     margin-bottom: 2rem;
   }
   
-  #add-review-form input[type="submit"],
-  #add-performer-form input[type="submit"]  {
+  #add-classes-form input[type="submit"],
+  #add-groups-form input[type="submit"],
+  #add-notes-form input[type="submit"]  {
     width: 10rem;
     grid-column: 2 / 3;
   }
@@ -176,5 +179,83 @@
   
   .login img {
     height: 30px;
+    width: 30px;
+  }
+
+  .list {
+    display: flex;
+    padding: 20px;
+    overflow-y: scroll;
   }
   
+  .item {
+    height: 224px;
+    width: 125px;
+    flex-shrink: 0;
+  }
+  
+  .item:not(:last-child) { margin-right: 10px; }
+
+  nav>a>img{
+    height: 4vmin;
+    width: auto;
+    display: inline-flex;
+    justify-items: right;
+  }
+
+  /* The side navigation menu */
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+/* Sidebar links */
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+
+/* Active/current link */
+.sidebar a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+/* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}

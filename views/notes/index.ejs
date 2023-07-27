@@ -15,10 +15,16 @@
         <td><%= n.courseName %></td>
         <td><%= n.groupName %></td>
         <td><%= n.subject %></td>
-        <td><a href="/notes/<%= n._id %>">Compose</a></td>
+        <td><a href="/notes/new>">Compose Note</a></td>
       </tr>
+      <!-- <ul>
+        <% for(var i=0; i<list.length; i++) { %>
+          <li><%= list[i] %></li>
+        <% } %>
+      </ul> -->
       <% }); %>
     </tbody>
   </table>
   
 <%- include('../partials/footer') %>
+
