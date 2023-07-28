@@ -1,6 +1,6 @@
 //const Class = require("../models/classes");
 //const Group = require("../models/groups");
-const Note = require("../models/notes");
+const Note = require("../models/note");
 
 module.exports={
     index,
@@ -21,7 +21,7 @@ async function show(req,res){
 }
 
 function newNote(req,res){
-    res.render('notes/new.ejs', {title: 'Add Note',errorMsg:''});
+    res.render('notes/new', {title: 'Add Note',errorMsg:''});
 }
 
 function update(req,res){
@@ -36,21 +36,14 @@ function deleteNote(req,res){
 }
 
 async function create(req, res) {
-    // Remove empty properties so that defaults will be applied
-    for (let key in req.body) {
-      if (req.body[key] === '') delete req.body[key];
-    }
     try {
-      // Update this line because now we need the _id of the new movie
-      const Note = await Note.create(req.body);
-      // Redirect to the new movie's show functionality 
-      res.redirect(`/notes/${note._id}`);
-    } catch (err) {
-      // Typically some sort of validation error
-      console.log(err);
-      res.render('notes/new', { errorMsg: err.message });
+      const note = await Note.create(req.body);
+      res.redirect(`/notes/${note._id}`);;
+    } catch (error) {
+      res.render('notes', { errorMsg: err.message });
     }
   }
+ 
 //   // references to DOM elements
 // const list = document.querySelector('.list');
 // const items = Array.from(document.querySelectorAll('.item'));

@@ -1,4 +1,4 @@
-const Class = require("../models/notes");
+const Class = require("../models/note");
 
 
 module.exports={

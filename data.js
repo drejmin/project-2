@@ -1,5 +1,5 @@
-exports.notes=[];
+module.exports.Note=[];
 
-exports.classes=[];
+module.exports.class=[];
 
-exports.groups=[];
+module.exports.group=[];
