@@ -12,7 +12,7 @@ router.get('/:id', notesCtrl.show);
 // DELETE /notes/:id
 router.get('/:id', notesCtrl.delete);
 // POST /notes
-router.post('/notes', notesCtrl.create);
+router.post('/', notesCtrl.create);
 
 	
 module.exports = router;
