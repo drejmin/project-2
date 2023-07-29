@@ -21,10 +21,17 @@
   </nav>
   <main>
     <h1><%= title %></h1>
+
+    <!-- side menu of the pages -->
 <div class = "sidebar" style="width:25;right:0">
   <a href="/groups">MY GROUPS</a>
   <a href="/groups/new">NEW GROUP</a>
   <a href="/notes/search">EXPLORE NOTES</a>
   <a>GOOGLE TASKS</a>
   <a href="/notes/new" style="color:red" <%- title === 'Add Note' ? 'class="active"' : '' %>>COMPOSE NOTE</a>
+</div>
+
+<!-- feed of the pages -->
+<div class = 'feed' >
+  
 </div>

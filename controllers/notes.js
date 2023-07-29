@@ -36,14 +36,21 @@ function deleteNote(req,res){
   res.redirect('/notes');
 }
 
-function create(req,res){
- Note.create(req.params.id,req.body);
- notes.push(Note);
- res.redirect('/notes/new', {errorMsg: err.message});
-
+async function create(req,res){
+  try {
+    const Notes = await Note.create(req.params.id, req.body)
+    await Note.save();
+    notes.push(Note)
+    res.redirect(`/notes/${req.param.id}`);
+  
+  } catch (err) {
+    // Typically some sort of validation error
+    console.log(err);
+    res.redirect('notes/new', { title: 'errorMsg', errMsg: err.message });
+ 
+  }
 }
   
- 
 function getPublic(){
   for(let i = 0; i> notes.length; i++){
     if (Note===!private){
