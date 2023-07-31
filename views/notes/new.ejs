@@ -11,14 +11,22 @@
 
 <!-- Initialize Quill editor -->
 <script>
-  var quill = new Quill('#editor', {
-    theme: 'snow'
-  });
+  var options = {
+  debug: 'info',
+  modules: {
+    toolbar: '#toolbar'
+  },
+  placeholder: 'Compose an epic...',
+  readOnly: true,
+  theme: 'snow'
+};
+var editor = new Quill('#editor', options);
+
 </script>
 <div class = "form">
   <form id="new-form" action="/notes/new"  style="width:75;left:0" method="POST">
     <label>Note name:</label>
-    <input type="text" name="noteName" >
+    <input type="text" name="noteName">
     <label>Course:</label>
     <input type="text" name="courseName">
     <label>Group</label>
@@ -26,7 +34,7 @@
     <label>Subject</label>
     <input type="text" name="subject">
     <label>Text</label>
-    <input type="text" name="text">
+    <input type="text,object,image" name="text">
     <label>Private</label>
     <input type="checkbox" name="private" checked>
     <input type="submit">

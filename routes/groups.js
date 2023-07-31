@@ -12,6 +12,6 @@ router.get('/groups/:id', groupsCtrl.show);
 // DELETE /notes/:id
 //router.get('/:id', groupsCtrl.delete);
 // POST /notes
-router.post('/groups', groupsCtrl.create);
+router.post('/groups/', groupsCtrl.create);
 	
 module.exports = router;

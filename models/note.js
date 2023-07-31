@@ -37,7 +37,10 @@ const noteSchema = new Schema({
     type:String,
     // required: true
     },
-  text: String,
+  text: {type:String,
+        type:Object,
+        type: Image,
+  },
  private: Boolean,
     //default: false}
   

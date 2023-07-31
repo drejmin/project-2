@@ -1,4 +1,17 @@
 <%- include('../partials/header') %>
 
-
+<div class = "form">
+    <form id="new-form" action="/groups"  style="width:75;left:0" method="POST">
+      <label>Owner Name:</label>
+      <input type="text" name="ownerName">
+      <label>Member Name:</label>
+      <input type="text" name="memberName">
+      <label>Group Name</label>
+      <input type="text" name="groupName">
+      <input type="submit">
+    </form>
+    <!-- <form action="/groups<%= /:id/ %>" method="DELETE">
+      <button type="submit">Delete Group</button>
+    </form> -->
+  </div>
 <%- include('../partials/footer') %>

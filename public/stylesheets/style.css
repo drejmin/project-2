@@ -184,11 +184,11 @@
     width: 30px;
   }
 
-  .list {
+  /* table >thead {
     display: flex;
     padding: 20px;
     overflow-y: scroll;
-  }
+  } */
   
   .item {
     height: 224px;
