@@ -4,7 +4,6 @@ const process = require('process');
 const {authenticate} = require('@google-cloud/local-auth');
 const {google} = require('googleapis');
 
-
 // If modifying these scopes, delete token.json.
 const SCOPES = ['https://www.googleapis.com/auth/tasks.readonly'];
 // The file token.json stores the user's access and refresh tokens, and is
@@ -13,14 +12,11 @@ const SCOPES = ['https://www.googleapis.com/auth/tasks.readonly'];
 const TOKEN_PATH = path.join(process.cwd(), 'token.json');
 const CREDENTIALS_PATH = path.join(process.cwd(), 'credentials.json');
 
-redirect_uris: [
-  "http://localhost:3000/oauth2callback"
-];
 /**
  * Reads previously authorized credentials from the save file.
-*
-* @return {Promise<OAuth2Client|null>}
-*/
+ *
+ * @return {Promise<OAuth2Client|null>}
+ */
 async function loadSavedCredentialsIfExist() {
   try {
     const content = await fs.readFile(TOKEN_PATH);
@@ -30,7 +26,6 @@ async function loadSavedCredentialsIfExist() {
     return null;
   }
 }
-
 
 /**
  * Serializes credentials to a file comptible with GoogleAUth.fromJSON.
@@ -47,9 +42,6 @@ async function saveCredentials(client) {
     client_id: key.client_id,
     client_secret: key.client_secret,
     refresh_token: client.credentials.refresh_token,
-    redirect_uris: [
-      "http://localhost:3000/oauth2callback"
-    ],
   });
   await fs.writeFile(TOKEN_PATH, payload);
 }
@@ -66,9 +58,6 @@ async function authorize() {
   client = await authenticate({
     scopes: SCOPES,
     keyfilePath: CREDENTIALS_PATH,
-    redirect_uris: [
-      "http://localhost:3000/oauth2callback"
-    ],
   });
   if (client.credentials) {
     await saveCredentials(client);
@@ -96,6 +85,5 @@ async function listTaskLists(auth) {
     console.log('No task lists found.');
   }
 }
-
 
 authorize().then(listTaskLists).catch(console.error);
