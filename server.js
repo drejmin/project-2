@@ -5,6 +5,14 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const session = require('express-session');
 const passport = require('passport');
+const multer = require('multer');
+const bodyParser = require('body-parser');
+// const mongoose = require('mongoose');
+const imgSchema = require('./models/note');
+var fs = require('fs');
+
+// mongoose.connect(process.env.MONGO_URL)
+// .then(console.log("DB Connected"))
 
 require('dotenv').config();
 require('./config/database');
@@ -15,6 +23,7 @@ const indexRouter = require('./routes/index');
 const classesRouter = require('./routes/classes');
 const groupsRouter = require('./routes/groups');
 const notesRouter = require('./routes/notes');
+
 
 
 const app = express();
@@ -28,6 +37,53 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
+
+var storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'uploads')
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.fieldname + '-' + Date.now())
+  }
+});
+
+var upload = multer({ storage: storage });
+
+app.get('/', (req, res) => {
+  imgSchema.find({})
+	.then((data, err)=>{
+		if(err){
+			console.log(err);
+		}
+		res.render('imagepage',{items: data})
+	})
+});
+
+
+app.post('/', upload.single('image'), (req, res, next) => {
+
+	var obj = {
+		name: req.body.name,
+		desc: req.body.desc,
+		img: {
+			data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
+			contentType: 'image/png'
+		}
+	}
+	imgSchema.create(obj)
+	.then ((err, item) => {
+		if (err) {
+			console.log(err);
+		}
+		else {
+			// item.save();
+			res.redirect('/');
+		}
+	});
+});
 
 app.use(session({
   secret: process.env.SECRET,

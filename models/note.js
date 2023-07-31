@@ -38,8 +38,7 @@ const noteSchema = new Schema({
     // required: true
     },
   text: {type:String,
-        type:Object,
-        type: Image,
+        image:Buffer,
   },
  private: Boolean,
     //default: false}
@@ -48,22 +47,16 @@ const noteSchema = new Schema({
   timestamps: true
 });
 
-// const Note = mongoose.model('Note', noteSchema);
+const imageSchema = new mongoose.Schema({
+	name: String,
+	desc: String,
+	img:
+	{
+		data: Buffer,
+		contentType: String
+	}
+});
 
-// const note = new Note({
-//   courseName:'',
-//   groupName:'',
-//   text:'',});
-
-//   if (note.noteName && note.subject) {
-//     note.save()
-//       .then(() => console.log('Note saved successfully'))
-//       .catch(error => console.error(error));
-//   } else {
-//     console.error('Name and subject are required');
-//   };
-
-
-
+module.exports = mongoose.model('Image', imageSchema);
 module.exports = mongoose.model('Note', noteSchema);
 
