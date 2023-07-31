@@ -1,64 +1,57 @@
 //const Class = require("../models/classes");
 //const Group = require("../models/groups");
-const Note = require("../models/note");
-const publicNote = require("../models/note")
+const Notes = require("../models/note.js");
+const notes ={};
 module.exports={
     index,
     show,
-    new: newNote,
     create,
+    new: newNote,
     delete: deleteNote,
     update,
-    getPublic,
 }
 
 async function index(req,res){
-    const notes = await Note.find({});
+    const notes = await Notes.find({});
     res.render('notes/index', {title: 'All Notes', notes});
 }
 
 async function show(req,res){
-    const Note = await Note.findById(req.params.id)
+    const Note = await Notes.findById(req.params.id)
+}
+
+
+function update(req,res){
+  req.body.done = !!req.body.done;
+  Notes.update(req.params.id, req.body);
+  res.redirect(`/notes/${req.params.id})`);
+}
+
+function deleteNote(req,res){
+  Notes.deleteOne(req.params.id);
+  res.redirect('/notes');
+}
+
+async function create(req,res){
+  try {
+    const note = await Notes.create(req.params.id, req.body);
+    await note.save();
+    notes.push(note);
+    res.redirect(`/notes/${req.param.id}`);
+    
+  } catch (err) {
+    // Typically some sort of validation error
+    console.log(err);
+    res.redirect({ title: 'errorMsg', errMsg: err.message }, 'notes/');
+    //res.redirect('notes/',{ title: 'errorMsg', errMsg: err.message } );
+    
+  }
 }
 
 function newNote(req,res){
     res.render('notes/new', {title: 'Add Note',errorMsg:''});
 }
 
-function update(req,res){
-  req.body.done = !!req.body.done;
-  Note.update(req.params.id, req.body);
-  res.redirect(`/notes/${req.params.id})`);
-}
-
-function deleteNote(req,res){
-  Note.deleteOne(req.params.id);
-  res.redirect('/notes');
-}
-
-async function create(req,res){
-  try {
-    const Notes = await Note.create(req.params.id, req.body)
-    await Note.save();
-    notes.push(Note)
-    res.redirect(`/notes/${req.param.id}`);
-  
-  } catch (err) {
-    // Typically some sort of validation error
-    console.log(err);
-    res.redirect('notes/new', { title: 'errorMsg', errMsg: err.message });
- 
-  }
-}
-  
-function getPublic(){
-  for(let i = 0; i> notes.length; i++){
-    if (Note===!private){
-      publicNote.push[i];
-    }
-    return publicNote;
-  }
-}
 //   // references to DOM elements
 // const list = document.querySelector('.list');
 // const items = Array.from(document.querySelectorAll('.item'));
