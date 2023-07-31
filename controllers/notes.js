@@ -17,7 +17,7 @@ async function index(req,res){
 }
 
 async function show(req,res){
-    const Note = await Notes.findById(req.params.id)
+    const note = await Notes.findById(req.params.id)
 }
 
 
@@ -33,17 +33,18 @@ function deleteNote(req,res){
 }
 
 async function create(req,res){
+
   try {
     const note = await Notes.create(req.params.id, req.body);
-    await note.save();
-    notes.push(note);
-    res.redirect(`/notes/${req.param.id}`);
+    //await note.save();
+    //notes.push(note);
+    res.redirect(`/notes/`);//${req.param.id}
     
   } catch (err) {
     // Typically some sort of validation error
     console.log(err);
-    res.redirect({ title: 'errorMsg', errMsg: err.message }, 'notes/');
-    //res.redirect('notes/',{ title: 'errorMsg', errMsg: err.message } );
+   // res.redirect({ title: 'errorMsg', errMsg: err.message }, 'notes/');
+    res.redirect('notes/new',{ title: 'errorMsg', errMsg: err.message } );
     
   }
 }

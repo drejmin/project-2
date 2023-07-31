@@ -4,7 +4,12 @@
   <thead>
     <tr>
       <th>Note</th>
+      <th>Text</th>
+      <div>
       <th>Class</th>
+      <th>Group</th>
+      <th>Subject</th>
+    </div>
       <th></th>
     </tr>
   </thead>
@@ -17,11 +22,7 @@
         <td><%= n.subject %></td>
         <td><%= n.text %></td>
       </tr>
-      <!-- <ul>
-        <% for(var i=0; i<list.length; i++) { %>
-          <li><%= list[i] %></li>
-        <% } %>
-      </ul> -->
+    
       <% }); %>
     </tbody>
   </table>

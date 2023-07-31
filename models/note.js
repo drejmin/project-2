@@ -29,33 +29,36 @@ const Schema = mongoose.Schema;
 const noteSchema = new Schema({
   noteName: {
     type:String,
-     required: true
+    // required: true
     },
   courseName: String,
   groupName: String,
   subject: {
     type:String,
-     required: true
+    // required: true
     },
   text: String,
-  private: {type:Boolean,default: false},
+ private: Boolean,
+    //default: false}
+  
 }, {
   timestamps: true
 });
 
-const Note = mongoose.model('note', noteSchema);
-var note = new Note({
-  courseName:'',
-  groupName:'',
-  text:'',});
+// const Note = mongoose.model('Note', noteSchema);
 
-  if (note.noteName && note.subject) {
-    note.save()
-      .then(() => console.log('Note saved successfully'))
-      .catch(error => console.error(error));
-  } else {
-    console.error('Name and subject are required');
-  };
+// const note = new Note({
+//   courseName:'',
+//   groupName:'',
+//   text:'',});
+
+//   if (note.noteName && note.subject) {
+//     note.save()
+//       .then(() => console.log('Note saved successfully'))
+//       .catch(error => console.error(error));
+//   } else {
+//     console.error('Name and subject are required');
+//   };
 
 
 

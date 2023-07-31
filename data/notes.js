@@ -1,7 +1,7 @@
-const notes = {}
+// const notes = {}
 
-module.exports ={
-    getPublic: function(){
-        return notes;
-    }
-}
+// module.exports ={
+//     getPublic: function(){
+//         return notes;
+//     }
+// }
