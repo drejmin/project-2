@@ -10,8 +10,8 @@
       <%= n.text %>
       <% }); %>
 
-      <a href="/notes<%= /:id/ %>"  style="color:black" <%- title === 'Delete Note' ? 'class="active"' : '' %>>DELETE NOTE</a>
-    | <a href="/notes/new" style="color:black" <%- title === 'Add Note' ? 'class="active"' : '' %>>COMPOSE NOTE</a>
+    | <form id="delete-note" action="/notes<%= /:id/%>"  style="width:75;left:0" method="DELETE" enctype="multipart/form-data">
+      <button type="submit">Delete Note</button>
 
     </div>
 </div>

@@ -3,14 +3,15 @@
 
 <%- include('../partials/footer') %>
 <section class = 'post' id="list">
-    <div>Owner: </div>
     <% groups.forEach(function(g) { %>
+    <div>Owner: </div>
     <div><%= g.ownerName %></div>
-    <div>Member:</div>
+    <div>Members:</div>
     <div><%= g.memberName %></div>
     <div>Group:</div>
     <div><%= g.groupName %></div>
     <% }); %>
-    <a href="/groups<%= /:id/ %>"  style="color:black" <%- title === 'Delete Group' ? 'class="active"' : '' %>>DELETE GROUP</a>
-    | <a href="/groups/new" style="color:black" <%- title === 'Add Group' ? 'class="active"' : '' %>>NEW GROUP</a>
+    
+    <form id="delete-note" action="/groups<%= /:id/%>"  style="width:75;left:0" method="DELETE" enctype="multipart/form-data">
+        <button type="submit">Delete Group</button>
  </section>

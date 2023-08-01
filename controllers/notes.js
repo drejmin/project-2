@@ -21,7 +21,6 @@ function show(req,res){
     res.render(`notes/show`, {title:'Note',note});
 }
 
-
 function update(req,res){
   req.body.done = !!req.body.done;
   Notes.update(req.params.id, req.body);
@@ -30,6 +29,7 @@ function update(req,res){
 
 function deleteNote(req,res){
   Notes.deleteOne(req.params.id);
+  Notes.splice(notes._id,1)
   res.redirect('/notes');
 }
 

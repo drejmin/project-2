@@ -29,6 +29,7 @@ function newGroup(req,res){
 }
 function deleteGroup(req,res){
   Groups.deleteOne(req.params.id);
+  Groups.splice(group._id,1);
   res.redirect('groups');
 }
 async function create(req, res) {
