@@ -29,13 +29,14 @@ function update(req,res){
 
 function deleteNote(req,res){
   Notes.deleteOne(req.params.id);
-  Notes.splice(notes._id,1)
+  Notes.splice(note.id,1)
   res.redirect('/notes');
 }
 
 async function create(req,res){
 
   try {
+    note.id = Date.now() % 1000000;
     const note = await Notes.create(req.params.id, req.body);
     res.redirect(`/notes/${note._id}`);
     
