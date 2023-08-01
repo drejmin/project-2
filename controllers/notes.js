@@ -36,8 +36,8 @@ function deleteNote(req,res){
 async function create(req,res){
 
   try {
-    note.id = Date.now() % 1000000;
     const note = await Notes.create(req.params.id, req.body);
+    note.id = Date.now() % 1000000;
     res.redirect(`/notes/${note._id}`);
     
   } catch (err) {

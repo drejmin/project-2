@@ -35,9 +35,9 @@ function deleteGroup(req,res){
 async function create(req, res) {
     
     try {
-      group.id = Date.now() % 1000000;
       // Update this line because now we need the _id of the new movie
       const group = await Groups.create(req.body, req.params.id);
+      group.id = Date.now() % 1000000;
       // Redirect to the new movie's show functionality 
       res.redirect(`groups/${group._id}`);
     } catch (err) {

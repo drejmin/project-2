@@ -63,9 +63,8 @@ module.exports={
 
 function deleteOne(id) {
   id = parseInt(id);
-  // Find the index for the todo
-  const idx = notes.findIndex(notes => notes.id === id);
-  notes.splice(idx, 1);
+  const idx = notes.findIndex(note => note.id === id);
+  Notes.splice(idx, 1);
 }
 
 module.exports = mongoose.model('Image', imageSchema);
