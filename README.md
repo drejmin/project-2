@@ -1,5 +1,5 @@
 # App Name
-<h1>Notes on Notes</h1>
+<h2>Notes on Notes</h2>
    <ul> 
         <li> A notes sharing app where you can post and share notes as well as search for other notes.</li>
         <li> This idea is made to help both students and teachers compile notes to better grasp and present the materials and subjects</li>
