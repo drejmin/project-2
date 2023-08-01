@@ -1,4 +1,5 @@
 # App Name
+<a href="https://imgur.com/kQsSNwL" id = "logo"><img src="https://i.imgur.com/kQsSNwL.png" title="source: imgur.com" id = 'logo'/></a>
 <h2>Notes on Notes</h2>
    <ul> 
         <li> A notes sharing app where you can post and share notes as well as search for other notes.</li>
