@@ -13,22 +13,22 @@ module.exports={
 
 async function index(req,res){
     const notes = await Notes.find({});
-    res.render('notes/index', {title: 'All Notes', notes});
+    res.render('/notes/index', {title: 'All Notes', notes});
 }
 
-async function show(req,res){
-    const note = await Notes.findById(req.params.id)
-    res.render(`/notes/:id`, {title:'Note',note});
+function show(req,res){
+    const note =  Notes.findById(req.params.id)
+    //res.render(`/notes/:id`, {title:'Note',note});
 }
 
 
 function update(req,res){
   req.body.done = !!req.body.done;
   Notes.update(req.params.id, req.body);
-  res.redirect(`/notes/${req.params.id})`);
+  res.redirect(`/notes/:id)`);
 }
 
-function deleteNote(req,id){
+function deleteNote(req,res){
   Notes.deleteOne(req.params.id);
   res.redirect('/notes');
 }
@@ -37,7 +37,7 @@ async function create(req,res){
 
   try {
     const note = await Notes.create(req.params.id, req.body);
-    res.redirect(`/notes/${req.param.id}`);
+    res.redirect(`/notes/${note._id}`);
     
   } catch (err) {
     // Typically some sort of validation error
