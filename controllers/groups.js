@@ -29,12 +29,13 @@ function newGroup(req,res){
 }
 function deleteGroup(req,res){
   Groups.deleteOne(req.params.id);
-  Groups.splice(group._id,1);
+  Groups.splice(group.id,1);
   res.redirect('groups');
 }
 async function create(req, res) {
     
     try {
+      group.id = Date.now() % 1000000;
       // Update this line because now we need the _id of the new movie
       const group = await Groups.create(req.body, req.params.id);
       // Redirect to the new movie's show functionality 

@@ -9,6 +9,15 @@ const groupSchema = new Schema({
 }, {
   timestamps: true
 });
+module.exports={
+  deleteOne,
+};
 
+function deleteOne(id) {
+  id = parseInt(id);
+  // Find the index for the todo
+  const idx = groups.findIndex(groups => groups.id === id);
+  groups.splice(idx, 1);
+}
 
 module.exports = mongoose.model('Group', groupSchema);

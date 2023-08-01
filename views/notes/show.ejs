@@ -3,16 +3,20 @@
 <section id="list">
     <% (function(notes) { %>
     <div>Notes: </div>
-    <div><%= notes.noteName %></div>
-    <div>Subject:</div>
-    <div><%= notes.subject %></div>
-    <div>Class: </div>
-    <div><%= notes.className %></div>
-    <div>Group:</div>
-    <div><%= notes.groupName %></div>
-    <div>Text:</div>
-    <div><%= notes.text %></div>
-    <% }); %>
+    <div class ='post'>
+        <table>
+            <th><%= notes.noteName %></th>
+            <th>Subject:</th>
+            <th><%= notes.subject %></th>
+            <th>Class: </th>
+            <th><%= notes.className %></th>
+            <th>Group:</th>
+            <th><%= notes.groupName %></th>
+            <th>Text:</th>
+            <th><%= notes.text %></th>
+            <th><% }); %></th>
+        </table>
+    </div>
  </section>
 
 <%- include('../partials/footer') %>
