@@ -1,3 +1,29 @@
+# App Name
+Notes on Notes
+    - A notes sharing app where you can post and share notes as well as search for other notes.
+    - This idea is made to help both students and teachers compile notes to better grasp and present the materials and subjects
+
+# Tech Used
+    -express.js
+    -MongoDB
+    -mongoose
+    -jQuery
+    -node.js
+    -multer
+    -Oauth
+
+# Planned Updates
+
+-More fleshed out CSS
+-In depth search features
+-Private notes
+-Notes on group pages
+-Notes editor
+-downloadable notes
+-share buttons 
+
+
+
 # Overview
  <h2>This app is one that is focused on students and education. The purpose of it is to create virtual notes sharing sessions that are easily assessible to all students. The notes can be made searchable. </h2>
 
@@ -5,7 +31,9 @@
 ## Possible Third Party App
 https://developers.google.com/tasks/quickstart/js 
 
-I want to add Google tasks api to the app to create a to-do list that can work with the notes
+I want to add Google tasks api to the app to create a to-do list that can work with the notes, however it only worked as a personal account so I switched it to embed google into the site.
+
+I am adding a quill api that allows for rich text input.
 
 # Restful Routing Chart
 

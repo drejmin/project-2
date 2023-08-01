@@ -8,7 +8,7 @@ const passport = require('passport');
 const multer = require('multer');
 const bodyParser = require('body-parser');
 const imgSchema = require('./models/note');
-//const fs = require('fs');
+const fs = require('fs');
 const $ = require('jquery');
 
 
