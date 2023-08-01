@@ -9,29 +9,23 @@
 </head>
 <body>
   <nav>
-    <a href="/notes">HOME</a>
-    <a>MY NOTES</a>
-    <a href="/classes">CLASSES</a>
-    <a>ABOUT</a>
+      <a href="https://imgur.com/kQsSNwL" id = "logo"><img src="https://i.imgur.com/kQsSNwL.png" title="source: imgur.com" id = 'logo'/></a>
+      <a href="/notes">HOME</a>
     <% if (user) { %>
       <a href="/logout">LOG OUT</a>
     <% } else { %>
-      <a href="/auth/google">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+      <a id = 'toggle' href="/auth/google">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
     <% } %>
   </nav>
   <main>
     <h1><%= title %></h1>
 
     <!-- side menu of the pages -->
-<div class = "sidebar" style="width:25;right:0">
+<div class = "sidebar" id= 'sidebar' style="width:25;right:0" >
   <a href="/groups">MY GROUPS</a>
   <a href="/groups/new">NEW GROUP</a>
   <a href="/notes/search">EXPLORE NOTES</a>
-  <a>GOOGLE TASKS</a>
-  <a href="/notes/new" style="color:red" <%- title === 'Add Note' ? 'class="active"' : '' %>>COMPOSE NOTE</a>
+  <embed src="keep.google.com/#reminders" style="width:500px; height: 300px;">
+  <a href="/notes/new" style="color:rgb(62, 144, 180)" <%- title === 'Add Note' ? 'class="active"' : '' %>>COMPOSE NOTE</a>
 </div>
 
-<!-- feed of the pages -->
-<div class = 'feed' >
-  
-</div>

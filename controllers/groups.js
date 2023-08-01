@@ -1,4 +1,4 @@
-const Group = require("../models/group");
+const Groups = require("../models/group");
 
 
 module.exports={
@@ -10,11 +10,12 @@ module.exports={
 
 async function index(req,res){
     const group = await Groups.find({});
-    res.render('classes/index', {title: 'All Classes', classes});
+    res.render('groups/index', {title: 'All Groups', group});
 }
 
 async function show(req,res){
     const group = await Groups.findById(req.params.id)
+    res.render(`/groups/${req.params.id}`);
 }
 
 function newClass(req,res){

@@ -1,10 +1,10 @@
 * {
     box-sizing: border-box;
     font-family: Helvetica;
-    color: #424748;
+    color: #74c8d9;
   }
   
-  body {
+  /* body {
     margin: 0;
     height: 100vh;
     display: grid;
@@ -12,31 +12,40 @@
     grid-template-areas: 
       "nav"
       "main"
+  } */
+  body{  
+    background: linear-gradient(to bottom right, white, #54f3e8);
+    height:600px;
+    display: grid;
+    grid-template-rows: 50px 1fr;
+    grid-template-areas: 'nav', 'main';
   }
-  
+
   body > nav {
-    grid-area: nav;
-    background-color: #B8C0C2;
+    grid-area: 'nav';
+    background-color: #3b9db5;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     padding: 0 20px 0 30px;
   }
   
-  nav > img {
-    width: 34px;
-    object-fit: contain;
-    margin-right: auto;
-  }
+  body> nav > a > img > #logo{
+   max-height: 50px;
+   max-width: 50px;
+   object-fit: contain;
+   margin: auto;
+   justify-content: flex-start;
+ }
   
   body > main {
-    grid-area: main;
+    grid-area: 'main';
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #E8ECEB;
     padding: 20px;
-    overflow-y: scroll;
+    overflow-x: scroll;
   }
   
   body > main h1:first-child {
@@ -52,7 +61,7 @@
   
   nav > a:hover:not(.active) {
     color: white;
-    background-color: #424748;
+    background-color: #91bec7;
   }
   
   nav > a.active {
@@ -83,28 +92,15 @@
     margin-left: 20px;
   }
   
-  table {
-    font-size: 20px;
-  }
   
-  table thead th {
-    padding: 5px;
-    border-bottom: 2px solid #424748;
-  }
-  
-  table td {
-    padding: 10px;
-    text-align: center;
-  }
-  
-  #list td:nth-child(2), #list td:nth-child(3){
+  #list column-1:nth-child(2), #list column-1:nth-child(3){
     min-width: 100px;
   }
   
   #list a {
-    border-radius: 4px;
-    background-color: #B8C0C2;
-    padding: 4px;
+    border-radius: 0px;
+    background-color: #91bec7;
+    padding: 0px;
     text-decoration: none;
     font-size: 14px;
   }
@@ -127,8 +123,8 @@
   #add-notes-form,
   #add-groups-form {
     display: grid;
-    grid-template-columns: auto auto;
-    grid-gap: 1rem;
+    grid-template-columns: auto;
+    grid-gap: auto;
     margin-bottom: 2rem;
   }
   
@@ -138,45 +134,12 @@
     width: 10rem;
     grid-column: 2 / 3;
   }
-  
-  hr {
-    color: #424748
-  }
-  
-  #badge-container {
-    display: flex;
-    flex-wrap: wrap;
-    /* padding: 1rem; */
-    width: 80%;
-    border: 2px solid #B8C0C2;
-    border-radius: .5rem;
-    margin: .5rem 0 2rem;
-  }
-  
-  .badge {
-    background-color: #B8C0C2;
-    padding: .5rem;
-    margin: .5rem;
-    border-radius: .3rem;
-    font-size: .8rem;
-    text-align: center;
-  }
-  
-  #show-page ul {
-    margin: 0 0 2rem;
-    padding: 0;
-    list-style: none;
-  }
-    
-  #show-page li {
-    font-weight: bold;
-  }
-  
+
   .login {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 34px;
+    height: 30px;
   }
   
   .login img {
@@ -184,12 +147,17 @@
     width: 30px;
   }
 
-  /* table >thead {
+  .post{top:70px;
+    right:600px;
+    position:auto;
+    width:600px;
+    height:210px;
     display: flex;
-    padding: 20px;
+    padding: 10px;
     overflow-y: scroll;
-  } */
-  
+   
+    }
+
   .item {
     height: 224px;
     width: 125px;
@@ -199,10 +167,10 @@
   .item:not(:last-child) { margin-right: 10px; }
 
   nav>a>img{
-    height: 4vmin;
+    height: 30px;
     width: auto;
     display: inline-flex;
-    justify-items: right;
+    justify-items: flex-start;
   }
 
   /* The side navigation menu */
@@ -232,11 +200,10 @@
 
 /* Links on mouse-over */
 .sidebar a:hover:not(.active) {
-  background-color: #555;
+  background-color: #91bec7;
   color: white;
 }
 
-/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
 div.content {
   margin-left: 200px;
   padding: 1px 16px;

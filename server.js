@@ -9,7 +9,8 @@ const multer = require('multer');
 const bodyParser = require('body-parser');
 // const mongoose = require('mongoose');
 const imgSchema = require('./models/note');
-var fs = require('fs');
+const fs = require('fs');
+const $ = require('jquery');
 
 // mongoose.connect(process.env.MONGO_URL)
 // .then(console.log("DB Connected"))

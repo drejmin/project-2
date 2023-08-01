@@ -1,19 +1,20 @@
 <%- include('../partials/header') %>
 
-<table id="list">
-  <thead>
-    <tr>
-      <th>Note</th>
-      <th>Text</th>
-      <div>
-      <th>Class</th>
-      <th>Group</th>
-      <th>Subject</th>
+<div id="list" class ='post'>
+    <div id="column-1" class="post">
+      <% notes.forEach(function(n) { %>
+      <hr><%= n.noteName %>| <%= n.courseName %>| <%= n.groupName %>| <%= n.subject %>|</hr> 
+      
+      <%= n.text %>
+      <% }); %>
+
+      <a href="/notes<%= /:id/ %>"  style="color:black" <%- title === 'DeleteNote' ? 'class="active"' : '' %>>DELETE NOTE</a>
+    | <a href="/notes/new" style="color:rgba(0, 0, 0, 0)" <%- title === 'Add Note' ? 'class="active"' : '' %>>COMPOSE NOTE</a>
+
     </div>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
+</div>
+    
+  <div id = 'list' class = 'post'>
     <% notes.forEach(function(n) { %>
       <tr>
         <td><%= n.noteName %></td>
@@ -24,8 +25,9 @@
       </tr>
     
       <% }); %>
+      
     </tbody>
-  </table>
+  </div>
   
 <%- include('../partials/footer') %>
 
