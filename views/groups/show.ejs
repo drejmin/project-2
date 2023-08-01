@@ -1,13 +1,15 @@
 <%- include('../partials/header') %>
 <section class = 'post' id="list">
-    <% (function(g) { %>
-    <div>Owner: </div>
-    <div><%= g.ownerName %></div>
-    <div>Member:</div>
-    <div><%= g.memberName %></div>
-    <div>Group:</div>
-    <div><%= g.groupName %></div>
-    <% }); %>
+    <table>
+        <% (function(g) { %>
+        <th>Owner:</th>
+        <th><%= g.ownerName %></th>
+        <th>Member:</th>
+        <th><%= g.memberName %></th>
+        <th>Group:</th>
+        <th><%= g.groupName %></th>
+        <% }); %>
+    </table>
  </section>
 
 <%- include('../partials/footer') %>
