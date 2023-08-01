@@ -1,7 +1,7 @@
 //const Class = require("../models/classes");
 //const Group = require("../models/groups");
 const Notes = require("../models/note.js");
-const notes ={};
+
 module.exports={
     index,
     show,
@@ -18,7 +18,7 @@ async function index(req,res){
 
 async function show(req,res){
     const note = await Notes.findById(req.params.id)
-    res.render(`/notes/${req.params.id}`, {title:'Note',note});
+    res.render(`/notes/:id`, {title:'Note',note});
 }
 
 
@@ -28,20 +28,16 @@ function update(req,res){
   res.redirect(`/notes/${req.params.id})`);
 }
 
-function deleteNote(id){
-  id=parseInt(id);
-  const idx = notes.findIndex(note=>note.id===id)
-  notes.splice(idx,1)
-  // Notes.deleteOne(req.params.id);
-  // res.redirect('/notes');
+function deleteNote(req,id){
+  Notes.deleteOne(req.params.id);
+  res.redirect('/notes');
 }
 
 async function create(req,res){
 
   try {
-    note.id = Date.now()%1000000;
     const note = await Notes.create(req.params.id, req.body);
-    res.redirect(`/notes`);//${req.param.id}
+    res.redirect(`/notes/${req.param.id}`);
     
   } catch (err) {
     // Typically some sort of validation error

@@ -3,8 +3,10 @@
 <div id="list" class ='post'>
     <div id="column-1" class="post">
       <% notes.forEach(function(n) { %>
-      <hr><%= n.noteName %>| <%= n.courseName %>| <%= n.groupName %>| <%= n.subject %>|</hr> 
-      
+      <%= n.noteName %>| 
+      <%= n.courseName %>| 
+      <%= n.groupName %>| 
+      <%= n.subject %>|
       <%= n.text %>
       <% }); %>
 
@@ -14,20 +16,6 @@
     </div>
 </div>
     
-  <div id = 'list' class = 'post'>
-    <% notes.forEach(function(n) { %>
-      <tr>
-        <td><%= n.noteName %></td>
-        <td><%= n.courseName %></td>
-        <td><%= n.groupName %></td>
-        <td><%= n.subject %></td>
-        <td><%= n.text %></td>
-      </tr>
-    
-      <% }); %>
-      
-    </tbody>
-  </div>
   
 <%- include('../partials/footer') %>
 

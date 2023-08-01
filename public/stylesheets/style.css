@@ -68,6 +68,21 @@
     color: white;
     cursor: default;
   }
+
+  #column-1{
+    left:0px;
+    top:0px;
+    background:white;
+    width:580px;
+    height:200px;
+    border-radius: 3px/3px;
+    font-size: 14px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color:#1b6192;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+  }
   
   #new-form {
     display: flex;

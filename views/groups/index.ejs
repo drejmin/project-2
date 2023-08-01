@@ -2,3 +2,13 @@
 
 
 <%- include('../partials/footer') %>
+<section class = 'post' id="list">
+    <div>Owner: </div>
+    <% group.forEach(function(g) { %>
+    <div><%= g.ownerName %></div>
+    <div>Member:</div>
+    <div><%= g.memberName %></div>
+    <div>Group:</div>
+    <div><%= g.groupName %></div>
+    <% }); %>
+ </section>

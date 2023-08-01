@@ -1,5 +1,6 @@
 <%- include('../partials/header') %>
 <section id="list">
+    <% notes.forEach(function(notes) { %>
     <div>Notes: </div>
     <div><%= notes.noteName %></div>
     <div>Subject:</div>
@@ -8,7 +9,9 @@
     <div><%= notes.className %></div>
     <div>Group:</div>
     <div><%= notes.groupName %></div>
-    
+    <div>Text:</div>
+    <div><%= notes.text %></div>
+    <% }); %>
  </section>
 
 <%- include('../partials/footer') %>

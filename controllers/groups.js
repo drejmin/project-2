@@ -28,7 +28,7 @@ async function create(req, res) {
       // Update this line because now we need the _id of the new movie
       const group = await Groups.create(req.body, req.params.id);
       // Redirect to the new movie's show functionality 
-      res.redirect(`/groups`);//${groups._id}
+      res.redirect(`/groups/${groups._id}`);
     } catch (err) {
       // Typically some sort of validation error
       console.log(err);
