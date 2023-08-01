@@ -1,27 +1,31 @@
 # App Name
-Notes on Notes
-    - A notes sharing app where you can post and share notes as well as search for other notes.
-    - This idea is made to help both students and teachers compile notes to better grasp and present the materials and subjects
+<h1>Notes on Notes</h1>
+   <ul> 
+        <li> A notes sharing app where you can post and share notes as well as search for other notes.</li>
+        <li> This idea is made to help both students and teachers compile notes to better grasp and present the materials and subjects</li>
+    </ul>
 
 # Tech Used
-    -express.js
-    -MongoDB
-    -mongoose
-    -jQuery
-    -node.js
-    -multer
-    -Oauth
+<ul>
+    <li>express.js</li>
+    <li>MongoDB</li>
+    <li>mongoose</li>
+    <li>jQuery</li>
+    <li>node.js</li>
+    <li>multer</li>
+    <li>Oauth</li>
+</ul>
 
 # Planned Updates
-
--More fleshed out CSS
--In depth search features
--Private notes
--Notes on group pages
--Notes editor
--downloadable notes
--share buttons 
-
+<ul>
+<li>More fleshed out CSS</li>
+<li>In depth search features</li>
+<li>Private notes</li>
+<li>Notes on group pages</li>
+<li>Notes editor</li>
+<li>downloadable notes</li>
+<li>share buttons </li>
+</ul>
 
 
 # Overview
