@@ -4,11 +4,13 @@
 <%- include('../partials/footer') %>
 <section class = 'post' id="list">
     <div>Owner: </div>
-    <% group.forEach(function(g) { %>
+    <% groups.forEach(function(g) { %>
     <div><%= g.ownerName %></div>
     <div>Member:</div>
     <div><%= g.memberName %></div>
     <div>Group:</div>
     <div><%= g.groupName %></div>
     <% }); %>
+    <a href="/groups<%= /:id/ %>"  style="color:black" <%- title === 'Delete Group' ? 'class="active"' : '' %>>DELETE GROUP</a>
+    | <a href="/groups/new" style="color:black" <%- title === 'Add Group' ? 'class="active"' : '' %>>NEW GROUP</a>
  </section>

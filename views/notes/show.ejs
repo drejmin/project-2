@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 
 <section id="list">
-    <% notes.forEach(function(notes) { %>
+    <% (function(notes) { %>
     <div>Notes: </div>
     <div><%= notes.noteName %></div>
     <div>Subject:</div>

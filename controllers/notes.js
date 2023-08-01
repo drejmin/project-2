@@ -13,12 +13,12 @@ module.exports={
 
 async function index(req,res){
     const notes = await Notes.find({});
-    res.render('/notes/index', {title: 'All Notes', notes});
+    res.render('notes/index', {title: 'All Notes', notes});
 }
 
 function show(req,res){
     const note =  Notes.findById(req.params.id)
-    //res.render(`/notes/:id`, {title:'Note',note});
+    res.render(`notes/show`, {title:'Note',note});
 }
 
 
