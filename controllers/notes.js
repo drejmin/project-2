@@ -18,6 +18,7 @@ async function index(req,res){
 
 async function show(req,res){
     const note = await Notes.findById(req.params.id)
+    res.render(`/notes/${req.params.id}`, {title:'Note',note});
 }
 
 
@@ -27,18 +28,20 @@ function update(req,res){
   res.redirect(`/notes/${req.params.id})`);
 }
 
-function deleteNote(req,res){
-  Notes.deleteOne(req.params.id);
-  res.redirect('/notes');
+function deleteNote(id){
+  id=parseInt(id);
+  const idx = notes.findIndex(note=>note.id===id)
+  notes.splice(idx,1)
+  // Notes.deleteOne(req.params.id);
+  // res.redirect('/notes');
 }
 
 async function create(req,res){
 
   try {
+    note.id = Date.now()%1000000;
     const note = await Notes.create(req.params.id, req.body);
-    //await note.save();
-    //notes.push(note);
-    res.redirect(`/notes/`);//${req.param.id}
+    res.redirect(`/notes`);//${req.param.id}
     
   } catch (err) {
     // Typically some sort of validation error
@@ -53,39 +56,3 @@ function newNote(req,res){
     res.render('notes/new', {title: 'Add Note',errorMsg:''});
 }
 
-//   // references to DOM elements
-// const list = document.querySelector('.list');
-// const items = Array.from(document.querySelectorAll('.item'));
-// const indicators = Array.from(document.querySelectorAll('.indicator'));
-
-// // create an observer with the list as intersection root
-// const observer = new IntersectionObserver(onIntersectionObserved, {
-//   root: list,
-//   threshold: 0.6
-// });
-
-// // observe each item
-// items.forEach(item => {
-//   observer.observe(item);
-// });
-
-// // when the observer detects an entry changing 
-// // (item entering or exiting  list)
-// // and the entry is intersecting
-// // get the intersecting item’s index
-// // set the correct indicator to active
-// function onIntersectionObserved(entries) {
-//   entries.forEach(entry => {
-//     if (entry.isIntersecting) {
-//       const intersectingIndex = items.indexOf(entry.target);
-//       activateIndicator(intersectingIndex);
-//     }
-//   });
-// }
-
-// // toggle an `active` class on the indicators
-// function activateIndicator(index) {
-//   indicators.forEach((indicator, i) => {
-//     indicator.classList.toggle('active', i === index);
-//   });
-// }
