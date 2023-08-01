@@ -3,28 +3,41 @@
 <!-- Include stylesheet -->
 <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 
-<!-- Create the editor container -->
-<div id="editor"></div>
-
 <!-- Include the Quill library -->
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
 <!-- Initialize Quill editor -->
 <script>
-  var options = {
-  debug: 'info',
+  var toolbarOptions = [
+  ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+  ['blockquote', 'code-block'],
+
+  [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+  [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+  [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+  [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+  [{ 'direction': 'rtl' }],                         // text direction
+
+  [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+  [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+  [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+  [{ 'font': [] }],
+  [{ 'align': [] }],
+
+  ['clean']                                         // remove formatting button
+];
+ 
+var editor = new Quill('#editor',{
   modules: {
-    toolbar: '#toolbar'
+    toolbar: toolbarOptions
   },
-  placeholder: 'Compose an epic...',
-  readOnly: true,
   theme: 'snow'
-};
-var editor = new Quill('#editor', options);
+});
 
 
 </script>
-<div class = "form">
+<div id= 'editor' class = "form">
   <form id="new-form" action="/notes/new"  style="width:75;left:0" method="POST" enctype="multipart/form-data">
     <label>Note name:</label>
     <input type="text" name="noteName">
@@ -35,7 +48,7 @@ var editor = new Quill('#editor', options);
     <label>Subject</label>
     <input type="text" name="subject">
     <label>Text</label>
-    <input type="text" name="text">
+    <textarea type='text' name="text" id="note" cols="30" rows="10"></textarea>
     <div>
       <label for="name">Image Title</label>
       <input
@@ -72,7 +85,7 @@ var editor = new Quill('#editor', options);
 
     <label>Private</label>
     <input type="checkbox" name="private" checked>
-    <input type="submit">
+    <!-- <input type="submit"> -->
   </form>
   <form action="/notes<%= /:id/ %>" method="DELETE">
     <button type="submit">Delete Note</button>
