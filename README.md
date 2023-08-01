@@ -28,6 +28,17 @@
 <li>share buttons </li>
 </ul>
 
+# Screenshots
+
+<a href="https://imgur.com/GTEbjWV"><img src="https://i.imgur.com/GTEbjWV.png" title="source: imgur.com" /></a>
+
+<a href="https://imgur.com/FYMrdmF"><img src="https://i.imgur.com/FYMrdmF.png" title="source: imgur.com" /></a>
+
+<a href="https://imgur.com/lc7UNup"><img src="https://i.imgur.com/lc7UNup.png" title="source: imgur.com" /></a>
+
+<a href="https://imgur.com/wGr1qXm"><img src="https://i.imgur.com/wGr1qXm.png" title="source: imgur.com" /></a>
+
+<a href="https://imgur.com/TfxQ1IZ"><img src="https://i.imgur.com/TfxQ1IZ.png" title="source: imgur.com" /></a>
 
 # Overview
  <h2>This app is one that is focused on students and education. The purpose of it is to create virtual notes sharing sessions that are easily assessible to all students. The notes can be made searchable. </h2>
