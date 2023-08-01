@@ -17,10 +17,10 @@ async function index(req,res){
 function update(req,res){
   req.body.done = !!req.body.done;
   Groups.update(req.params.id, req.body);
-  res.redirect(`/groups/:id)`);
+  res.redirect(`groups/:id)`);
 }
-async function show(req,res){
-    const group = await Groups.findById(req.params.id)
+function show(req,res){
+    const group = Groups.findById(req.params.id)
     res.render(`groups/show`, {title:'Group',group});
 }
 
@@ -29,7 +29,7 @@ function newGroup(req,res){
 }
 function deleteGroup(req,res){
   Groups.deleteOne(req.params.id);
-  res.redirect('/groups');
+  res.redirect('groups');
 }
 async function create(req, res) {
     
@@ -37,7 +37,7 @@ async function create(req, res) {
       // Update this line because now we need the _id of the new movie
       const group = await Groups.create(req.body, req.params.id);
       // Redirect to the new movie's show functionality 
-      res.redirect(`/groups/${group._id}`);
+      res.redirect(`groups/${group._id}`);
     } catch (err) {
       // Typically some sort of validation error
       console.log(err);
