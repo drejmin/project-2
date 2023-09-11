@@ -63,7 +63,7 @@ var upload = multer({ storage: storage });
 app.get('/', (req, res) => {
 	imgSchema.find({})
 	  .then(data => {
-		res.render('/', {items: data});
+		res.render('/Users/deandreminor/code/projects/project-2/views/notes/show.ejs', {items: data});
 	  })
 	  .catch(err => {
 		console.log(err);
