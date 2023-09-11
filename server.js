@@ -60,16 +60,16 @@ var upload = multer({ storage: storage });
 // 		res.render('imagepage',{items: data})
 // 	})
 // });
-app.get('/', (req, res) => {
-	imgSchema.find({})
-	  .then(data => {
-		res.render('notes/show', {items: data});
-	  })
-	  .catch(err => {
-		console.log(err);
-		res.status(500).send("Internal Server Error");
-	  });
-  });
+// app.get('/', (req, res) => {
+// 	imgSchema.find({})
+// 	  .then(data => {
+// 		res.render('notes/show', {items: data});
+// 	  })
+// 	  .catch(err => {
+// 		console.log(err);
+// 		res.status(500).send("Internal Server Error");
+// 	  });
+//   });
 
 app.post('/', upload.single('image'), (req, res, next) => {
 
