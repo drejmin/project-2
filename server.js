@@ -26,6 +26,7 @@ const notesRouter = require('./routes/notes');
 
 const app = express();
 
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -50,16 +51,25 @@ var storage = multer.diskStorage({
 
 var upload = multer({ storage: storage });
 
+// app.get('/', (req, res) => {
+//   imgSchema.find({})
+// 	.then((data, err)=>{
+// 		if(err){
+// 			console.log(err);
+// 		}
+// 		res.render('imagepage',{items: data})
+// 	})
+// });
 app.get('/', (req, res) => {
-  imgSchema.find({})
-	.then((data, err)=>{
-		if(err){
-			console.log(err);
-		}
-		res.render('imagepage',{items: data})
-	})
-});
-
+	imgSchema.find({})
+	  .then(data => {
+		res.render('/notes', {items: data});
+	  })
+	  .catch(err => {
+		console.log(err);
+		res.status(500).send("Internal Server Error");
+	  });
+  });
 
 app.post('/', upload.single('image'), (req, res, next) => {
 
