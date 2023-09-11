@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel='stylesheet' href='/stylesheets/style.css'>
+  <script src="jquery-3.6.0.min.js"></script>
   <title><%= title %></title>
 </head>
 <body>
@@ -25,7 +26,7 @@
   <a href="/groups">MY GROUPS</a>
   <a href="/groups/new">NEW GROUP</a>
   <a href="/notes/search">EXPLORE NOTES</a>
-  <embed src="keep.google.com/#reminders" style="width:500px; height: 300px;">
+  <object type="html" data="keep.google.com/#reminders" style="width:25; height: 300px;"></object>
   <a href="/notes/new" style="color:rgb(62, 144, 180)" <%- title === 'Add Note' ? 'class="active"' : '' %>>COMPOSE NOTE</a>
 </div>
 
