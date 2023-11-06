@@ -2,18 +2,15 @@
 
 
 <section class = 'post' id="list">
-    <table>
+    <ul>
     <% groups.forEach(function(g) { %>
-        <th>Owner:</th>
-        <th><%= g.ownerName %></th>
-        <th>Member:</th>
-        <th><%= g.memberName %></th>
-        <th>Group:</th>
-        <th><%= g.groupName %></th>
-        <% }); %>
-    </table> 
-        <form id="delete-group" action="/groups<%= /:id/%>"  style="width:75;left:0" method="DELETE" enctype="multipart/form-data">
+        <li>Owner: <%= g.ownerName %></li>
+        <li>Member:<%= g.memberName %></li>
+        <li>Group:<%= g.groupName %></li>
+        <form class = "delete-form" action="/groups/<%= g.id %>? _method=DELETE"  style="width:75;left:0" method="POST">
             <button type="submit">Delete Group</button>
-        </section>
+        <% }); %>
+    </ul> 
+</section>
 
 <%- include('../partials/footer') %>

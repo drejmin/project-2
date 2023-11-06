@@ -71,27 +71,27 @@ var upload = multer({ storage: storage });
 // 	  });
 //   });
 
-app.post('/', upload.single('image'), (req, res, next) => {
+// app.post('/', upload.single('image'), (req, res, next) => {
 
-	var obj = {
-		name: req.body.name,
-		desc: req.body.desc,
-		img: {
-			data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
-			contentType: 'image/png'
-		}
-	}
-	imgSchema.create(obj)
-	.then ((err, item) => {
-		if (err) {
-			console.log(err);
-		}
-		else {
-			// item.save();
-			res.redirect('/');
-		}
-	});
-});
+// 	var obj = {
+// 		name: req.body.name,
+// 		desc: req.body.desc,
+// 		img: {
+// 			data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
+// 			contentType: 'image/png'
+// 		}
+// 	}
+// 	imgSchema.create(obj)
+// 	.then ((err, item) => {
+// 		if (err) {
+// 			console.log(err);
+// 		}
+// 		else {
+// 			// item.save();
+// 			res.redirect('/');
+// 		}
+// 	});
+// });
 
 app.use(session({
   secret: process.env.SECRET,
@@ -110,8 +110,8 @@ app.use(function (req, res, next) {
 
 app.use('/', indexRouter);
 app.use('/notes', notesRouter);
-app.use('/', classesRouter);
-app.use('/', groupsRouter);
+app.use('/classes', classesRouter);
+app.use('/groups', groupsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

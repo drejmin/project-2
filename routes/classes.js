@@ -10,7 +10,7 @@ router.get('/classes/new', classesCtrl.new);
 // GET /notes/:id (show functionality) MUST be below new route
 router.get('/classes/:id', classesCtrl.show);
 // DELETE /notes/:id
-//router.get('/:id', classesCtrl.delete);
+router.delete('/:id', classesCtrl.delete);
 // POST /notes
 router.post('/classes', classesCtrl.create);
 	

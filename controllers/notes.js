@@ -1,5 +1,3 @@
-//const Class = require("../models/classes");
-//const Group = require("../models/groups");
 const Notes = require("../models/note.js");
 
 module.exports={
@@ -24,7 +22,7 @@ function show(req,res){
 function update(req,res){
   req.body.done = !!req.body.done;
   Notes.update(req.params.id, req.body);
-  res.redirect(`/notes/:id)`);
+  res.redirect(`/notes/:id`);
 }
 
 function deleteNote(req,res){

@@ -3,7 +3,9 @@ const Schema = mongoose.Schema;
 
 const groupSchema = new Schema({
   memberName: String,
-  ownerName: String,
+  ownerName:[{
+    type: Schema.Types.ObjectId,
+    ref: 'User',}],
   groupName:String,
 
 }, {
@@ -15,7 +17,7 @@ module.exports={
 
 function deleteOne(id) {
   id = parseInt(id);
-  const idx = groups.findIndex(groups => groups.id === id);
+  const idx = groups.findIndex(group => group.id === id);
   Groups.splice(idx, 1);
 }
 

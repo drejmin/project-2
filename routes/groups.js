@@ -10,7 +10,7 @@ router.get('/groups/new', groupsCtrl.new);
 // GET /notes/:id (show functionality) MUST be below new route
 router.get('/groups/:id', groupsCtrl.show);
 // DELETE /notes/:id
-//router.get('/:id', groupsCtrl.delete);
+router.delete('/:id', groupsCtrl.delete);
 // POST /notes
 router.post('/groups/', groupsCtrl.create);
 	

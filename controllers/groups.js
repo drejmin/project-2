@@ -1,6 +1,5 @@
 const Groups = require("../models/group.js");
 
-
 module.exports={
     index,
     show,
@@ -8,6 +7,7 @@ module.exports={
     new: newGroup,
     delete: deleteGroup,
     create
+
 }
 
 async function index(req,res){
@@ -17,7 +17,7 @@ async function index(req,res){
 function update(req,res){
   req.body.done = !!req.body.done;
   Groups.update(req.params.id, req.body);
-  res.redirect(`groups/:id)`);
+  res.redirect(`groups/:id`);
 }
 function show(req,res){
     const group = Groups.findById(req.params.id)
@@ -27,13 +27,18 @@ function show(req,res){
 function newGroup(req,res){
     res.render('groups/new', {title: 'Add Group',errorMsg:''});
 }
+
 function deleteGroup(req,res){
   Groups.deleteOne(req.params.id);
   Groups.splice(group.id,1);
-  res.redirect('groups');
+  res.redirect('/groups');
 }
+
 async function create(req, res) {
-    
+  // Remove empty properties so that defaults will be applied
+  for (let key in req.body) {
+    if (req.body[key] === '') delete req.body[key];
+  }
     try {
       // Update this line because now we need the _id of the new movie
       const group = await Groups.create(req.body, req.params.id);

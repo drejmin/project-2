@@ -2,22 +2,19 @@
 
 <div id="list" class ='post'>
     <div id="column-1" class="post">
-      <table>
+      <ul>
         <% notes.forEach(function(notes) { %>
-        <th><%= notes.noteName %></th><br>
-        <th>Subject:</th>
-        <th><%= notes.subject %></th><br>
-        <th>Class: </th>
-        <th><%= notes.className %></th><br>
-        <th>Group:</th>
-        <th><%= notes.groupName %></th><br>
-        <th>Text:</th>
-        <th><%= notes.text %></th><br>
-        <th><% }); %></th>
-    </table>
+        <li><%= notes.noteName %></li><br>
+        <li>Subject:<%= notes.subject %></li><br>
+        <!-- <li>Class:<%= notes.className %></li><br>
+        <li>Group:<%= notes.groupName %></li><br> -->
+        <li>Text:<%= notes.text %></li><br>
+        <li>Image:<%= notes.image %></li><br>
+        <form class = "delete-form" action="/notes/<%= notes.id %>? _method=DELETE"  style="width:75;left:0" method="POST">
+           <button type="submit">Delete Note</button>
+        <li><% }); %></li>
+    </ul>
 
-   <form id="delete-note" action="/notes<%= /:id/%>"  style="width:75;left:0" method="DELETE" enctype="multipart/form-data">
-      <button type="submit">Delete Note</button>
 
     </div>
 </div>

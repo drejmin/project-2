@@ -1,38 +1,17 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-
-// const groupSchema = new Schema({
-//   memberName: String,
-//   ownerName: String,
-//   groupName:String,
-
-// }, {
-//   timestamps: true
-// });
-
-
-// module.exports = mongoose.model('Group', groupSchema);
-
-// const classSchema = new Schema({
-//   subject: {type:String, required: true},
-//   courseName: String,
-//   teacherName: String,
-//   private: Boolean,
-// }, {
-//   timestamps: true
-// });
-
-
-// module.exports = mongoose.model('Class', classSchema);
-
 const noteSchema = new Schema({
   noteName: {
     type:String,
     // required: true
     },
-  courseName: String,
-  groupName: String,
+  course: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Class',}],
+  group: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Group',}],
   subject: {
     type:String,
     // required: true
@@ -47,12 +26,13 @@ const noteSchema = new Schema({
   timestamps: true
 });
 
+
 const imageSchema = new mongoose.Schema({
-	name: String,
+  name: String,
 	desc: String,
 	img:
 	{
-		data: Buffer,
+    data: Buffer,
 		contentType: String
 	}
 });
@@ -69,4 +49,5 @@ function deleteOne(id) {
 
 module.exports = mongoose.model('Image', imageSchema);
 module.exports = mongoose.model('Note', noteSchema);
+
 
